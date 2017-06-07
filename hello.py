@@ -13,6 +13,15 @@ def index():
 def user(name):
     return render_template('user.html',name=name)
 
+@app.errorhandler(404)
+def page_not_find(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def page_server_error(e):
+    return render_template('500.thml'), 500
+
+
 
 if __name__=='__main__':
     manager.run()
